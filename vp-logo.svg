@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+  <defs>
+
+    <filter id="rGlow" x="-15%" y="-40%" width="130%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+      <feFlood flood-color="#B91C1C" flood-opacity="0.5" result="c"/>
+      <feComposite in="c" in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="wShad" x="-8%" y="-20%" width="116%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.85"/>
+    </filter>
+
+    <filter id="gGlow" x="-20%" y="-80%" width="140%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b"/>
+      <feFlood flood-color="#CA8A04" flood-opacity="0.55" result="c"/>
+      <feComposite in="c" in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- Transparent background — works on any dark surface -->
+
+  <!-- Decorative rules -->
+  <line x1="60"  y1="52" x2="320" y2="52" stroke="rgba(202,138,4,0.35)" stroke-width="1"/>
+  <line x1="480" y1="52" x2="740" y2="52" stroke="rgba(202,138,4,0.35)" stroke-width="1"/>
+
+  <!-- "THE" -->
+  <text x="400" y="58"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="18"
+        fill="#CA8A04"
+        letter-spacing="16"
+        filter="url(#gGlow)">THE</text>
+
+  <!-- "VILLAGE" -->
+  <text x="400" y="130"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="100"
+        font-weight="700"
+        fill="#FFFFFF"
+        letter-spacing="-3"
+        filter="url(#wShad)">VILLAGE</text>
+
+  <!-- "PEOPLE" -->
+  <text x="400" y="185"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="56"
+        font-weight="700"
+        fill="#B91C1C"
+        letter-spacing="18"
+        filter="url(#rGlow)">PEOPLE</text>
+
+</svg>
