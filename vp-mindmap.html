@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Village People — Cast & Team Map</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#060606;color:#fff;font-family:'Arial',sans-serif;width:1380px;overflow-x:hidden}
+.page{position:relative;width:1380px;padding:0 0 40px}
+
+/* ── Header ── */
+.map-header{background:#0a0a0a;border-bottom:1px solid rgba(255,255,255,0.07);padding:22px 40px 18px;display:flex;justify-content:space-between;align-items:flex-end}
+.map-header h1{font-size:1.25rem;letter-spacing:0.22em;text-transform:uppercase;color:#fff}
+.map-header .sub{font-size:0.62rem;color:rgba(255,255,255,0.28);letter-spacing:0.14em;text-transform:uppercase}
+.map-header .legend{display:flex;gap:18px;align-items:center}
+.leg{display:flex;align-items:center;gap:6px;font-size:0.62rem;color:rgba(255,255,255,0.45)}
+.leg-dot{width:10px;height:10px;border-radius:50%}
+
+/* ── Layer bands ── */
+.layer{padding:20px 28px;border-bottom:1px solid rgba(255,255,255,0.04);position:relative}
+.layer-label{font-size:0.54rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:14px}
+.layer-row{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+
+/* ── Node cards ── */
+.node{border-radius:10px;padding:13px 16px;min-width:160px;max-width:215px;flex-shrink:0;position:relative}
+.n-team{font-size:0.52rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:5px;opacity:0.7}
+.n-name{font-size:0.88rem;font-weight:700;line-height:1.25;margin-bottom:2px}
+.n-alias{font-size:0.62rem;font-style:italic;opacity:0.5;margin-bottom:6px}
+.n-desc{font-size:0.6rem;line-height:1.5;opacity:0.55}
+.n-pitch{font-size:0.54rem;margin-top:7px;opacity:0.28;font-style:italic}
+
+/* ── Team styles ── */
+.t-ep     {background:rgba(12,12,12,0.95);border:1.5px solid rgba(255,255,255,0.22)}
+.t-network{background:rgba(100,10,10,0.25);border:2px solid rgba(220,38,38,0.55)}
+.t-opp    {background:rgba(100,50,0,0.25);border:2px solid rgba(251,191,36,0.6)}
+.t-hoto   {background:rgba(100,50,0,0.35);border:2.5px solid rgba(251,191,36,0.95);box-shadow:0 0 18px rgba(251,191,36,0.12)}
+.t-neutral{background:rgba(15,30,90,0.3);border:1.5px solid rgba(96,165,250,0.45)}
+.t-host   {background:rgba(80,20,200,0.15);border:1.5px solid rgba(139,92,246,0.55)}
+.t-field  {background:rgba(0,60,30,0.25);border:1.5px solid rgba(34,197,94,0.5)}
+.t-mark   {background:rgba(100,5,5,0.35);border:2.5px solid rgba(185,28,28,0.9);box-shadow:0 0 22px rgba(185,28,28,0.14)}
+.t-broker {background:rgba(90,45,0,0.2);border:1.5px solid rgba(180,83,9,0.55)}
+.t-naive  {background:rgba(30,30,30,0.4);border:1px solid rgba(100,100,100,0.3)}
+
+/* ── Connection arrows between layers ── */
+.connector-row{display:flex;gap:14px;padding:0 28px 0;align-items:center;min-height:22px}
+.conn{font-size:0.6rem;color:rgba(255,255,255,0.2);display:flex;align-items:center;gap:6px;min-width:160px;max-width:215px}
+.conn-line{flex:1;height:1px;background:currentColor}
+.arr{font-size:0.75rem}
+
+/* ── Special: HOTO badge ── */
+.hoto-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#b45309;color:#fff;font-size:0.5rem;font-weight:900;letter-spacing:0.14em;text-transform:uppercase;padding:2px 10px;border-radius:999px;white-space:nowrap}
+
+/* ── Scarlet center highlight ── */
+.mark-center{text-align:center;padding:18px 28px 10px;border-top:1px solid rgba(185,28,28,0.15);border-bottom:1px solid rgba(185,28,28,0.15);background:rgba(185,28,28,0.04);margin:0 0}
+.mark-center-label{font-size:0.55rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(185,28,28,0.6);margin-bottom:12px}
+.mark-center-row{display:flex;justify-content:center;gap:20px;align-items:flex-start}
+.mark-divider{width:1px;background:rgba(255,255,255,0.07);align-self:stretch}
+
+/* ── Comms chain sidebar ── */
+.chain-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:14px 18px;font-size:0.62rem;line-height:1.7;color:rgba(255,255,255,0.4);max-width:480px}
+.chain-box strong{color:rgba(255,255,255,0.65)}
+.chain-title{font-size:0.56rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:8px}
+
+/* ── Twist box ── */
+.twist-band{background:linear-gradient(90deg,rgba(185,28,28,0.06),rgba(251,191,36,0.05));border-top:1px solid rgba(185,28,28,0.18);border-bottom:1px solid rgba(185,28,28,0.1);padding:16px 28px;display:flex;gap:24px;align-items:center}
+.twist-item{font-size:0.68rem;color:rgba(255,255,255,0.45);line-height:1.6}
+.twist-item strong{color:rgba(255,255,255,0.72)}
+.twist-sep{width:1px;background:rgba(255,255,255,0.07);align-self:stretch;min-height:36px}
+
+/* ── Footer ── */
+.map-footer{padding:18px 28px;text-align:center;font-size:0.62rem;color:rgba(255,255,255,0.18);letter-spacing:0.1em;font-style:italic}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ══════════════ HEADER ══════════════ -->
+<div class="map-header">
+  <div>
+    <div class="sub">Internal Reference · All Names Pitch Targets Unless Noted · Confidential</div>
+    <h1>The Village People — Cast &amp; Team Map</h1>
+  </div>
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:#dc2626"></div> The Mark</div>
+    <div class="leg"><div class="leg-dot" style="background:#22c55e"></div> The Field</div>
+    <div class="leg"><div class="leg-dot" style="background:#fbbf24"></div> The Opposition</div>
+    <div class="leg"><div class="leg-dot" style="background:#60a5fa"></div> Neutral</div>
+    <div class="leg"><div class="leg-dot" style="background:#8b5cf6"></div> Host</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(255,255,255,0.3)"></div> Management (EP-only)</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(100,100,100,0.7)"></div> Naive</div>
+  </div>
+</div>
+
+<!-- ══════════════ LAYER 1 — MANAGEMENT (knows everything) ══════════════ -->
+<div class="layer" style="background:rgba(5,5,5,0.8)">
+  <div class="layer-label">Layer 1 — Management · Fully Aware · Runs Both Sides</div>
+  <div class="layer-row">
+
+    <div class="node t-ep" style="max-width:240px">
+      <div class="n-team">Executive Producer · Anonymous</div>
+      <div class="n-name">MGS2</div>
+      <div class="n-alias">Michael George Sorel Jr.</div>
+      <div class="n-desc">Post production. DaVinci Resolve. AI data capture. Final cut is his. Not on camera. Not in the credits. On site in a Grey Fox (MGS1/2 cyborg ninja) cooling suit — identity fully concealed. <strong style="color:rgba(255,255,255,0.65);">Sissy's ex-boyfriend. She doesn't know he founded the show.</strong></div>
+    </div>
+
+    <div class="node t-network" style="max-width:240px">
+      <div class="n-team">Planet Hollywood · Network Rep · Charity Authority</div>
+      <div class="n-name">Sly Stallone</div>
+      <div class="n-alias">Sylvester Stallone</div>
+      <div class="n-desc">Masked. Voice changed. Watches from isolated room. Sissy's ultimate boss — she was given a red herring about his identity and knows her position is performance-contingent. Charity disbursements go through him. The judge throws the book; Stallone delivers the prize.</div>
+      <div class="n-pitch">Pitch target: Sylvester Stallone</div>
+    </div>
+
+    <div style="flex:1; display:flex; align-items:center; justify-content:flex-end;">
+      <div class="chain-box">
+        <div class="chain-title">Chain of Wisdom — One-Way Only</div>
+        <strong>Scarlet</strong> can seek wisdom from → <strong>Star Williams</strong><br>
+        <strong>Star</strong> can seek wisdom from → <strong>Sly Stallone</strong><br>
+        <strong>Sly</strong> consults his → <strong>production team + lawyers</strong><br>
+        <br>
+        <strong>Chip</strong> gets intel from → <strong>NDT</strong> (pacing) and <strong>Sissy</strong> (The Egger)<br>
+        <span style="opacity:0.4">Chip doesn't know Sissy is trying to bust Scarlet. Thinks NDT is his producer.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ LAYER 2 — THE OPPOSITION MECHANICS ══════════════ -->
+<div class="layer">
+  <div class="layer-label">Layer 2 — The Opposition · Trying to Bust Scarlet · Davids Don't Know This Layer Exists in Season 1</div>
+  <div class="layer-row">
+
+    <div class="node t-opp" style="max-width:210px">
+      <div class="n-team">The Egger · Communications Director · In Chip's Ear</div>
+      <div class="n-name">Sissy Bestie</div>
+      <div class="n-alias">Voice masked · Identity masked</div>
+      <div class="n-desc">Sits in isolated observation room watching same feed as Stallone (separately). Whispers to Chip Diamond — eggs him on to steer Davids into compliance foibles. Works with legal aids. Thinks her boss is someone else (red herring). <strong style="color:rgba(255,255,255,0.55);">Does not know Ashton exists. Does not know MGS2 is her ex who built the show.</strong></div>
+    </div>
+
+    <div class="node t-opp" style="max-width:210px; position:relative">
+      <div class="hoto-badge">H.O.T.O.</div>
+      <div class="n-team">Hand of the Opposition · On-Site · Cameraman Cover · MGS2 Mask</div>
+      <div class="n-name">Chip Diamond</div>
+      <div class="n-alias">Stage name: Ed Bassmaster · Not used on set</div>
+      <div class="n-desc">Best-dressed person on any job site. Wears a Mike Sorel Jr. mask — "the cameraman" looks like MGS2. Has <strong style="color:rgba(255,255,255,0.6);">Sissy (The Egger)</strong> and <strong style="color:rgba(255,255,255,0.6);">NDT (pacer)</strong> simultaneously in his ear. <strong style="color:rgba(255,255,255,0.55);">Doesn't know he's the instigator.</strong> Thinks NDT is his producer. Runs main camera; Davids carry body-cam tactical suits. Hot mic to Frank C. Answers only to Frank C.</div>
+    </div>
+
+    <div class="node t-opp" style="max-width:210px">
+      <div class="n-team">Opposition Leader · Real Estate Attorneys</div>
+      <div class="n-name">Frank C</div>
+      <div class="n-alias">+ Legal Team · Judges</div>
+      <div class="n-desc">Watches Chip's live feed. Looking for compliance error — unlicensed statement, skipped disclosure, improper promise. Davids almost certainly have no FL/GA license. Scarlet is the agent of record. Can trigger FREC investigation, fines, license suspension, civil or criminal exposure. Network runs both sides: Frank C runs the stings; Stallone runs the honeys.</div>
+    </div>
+
+    <div class="node t-neutral" style="max-width:195px">
+      <div class="n-team">Tempo Director · In Chip's Ear · Neutral</div>
+      <div class="n-name">Dr. Neil deGrasse Tyson</div>
+      <div class="n-alias">Houston Command Center</div>
+      <div class="n-desc">Tracks speech rate, walking pace, pressure index (P̄), and time-to-close per David per client. In Chip's ear for pacing — Chip must commit to his tempo calls. NDT does not know he's enabling the opposition. Nominally "run by" the Guest Producer. <em style="color:rgba(255,255,255,0.3);">"Houston, we have a problem."</em></div>
+      <div class="n-pitch">Pitch target: Neil deGrasse Tyson</div>
+    </div>
+
+    <div class="node t-neutral" style="max-width:185px">
+      <div class="n-team">Guest Role · Live Audience Pick · Naive</div>
+      <div class="n-name">The Guest Producer</div>
+      <div class="n-alias">Audience member — episode varies</div>
+      <div class="n-desc">Nominated from the live audience to fill the nominal "show producer" title. Has no idea what's actually happening. NDT nominally operates under their direction. They think they're producing a real estate show. They are not.</div>
+    </div>
+
+    <div class="node t-neutral" style="max-width:210px">
+      <div class="n-team">Narrator · Mr. Time · Controls the Remote</div>
+      <div class="n-name">Ron Howard</div>
+      <div class="n-alias">The voice between scenes</div>
+      <div class="n-desc">Narrates and controls pacing for the broadcast cut. When the show needs to fit its timeslot, Ron Howard speeds things up — he has the remote, he fast-forwards, he bridges transitions. Extended scenes and uncut runs are available for viewers who want the full episode. <strong style="color:rgba(255,255,255,0.55);">All opposition-guided content makes the final cut</strong> — no matter how tight the runtime gets, the compliance pressure, the Chip-directed moments, the Sissy-engineered foibles: all of it airs. That's the show.</div>
+      <div class="n-pitch">Pitch target: Ron Howard</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ LAYER 3 — ON SITE (limited/no awareness) ══════════════ -->
+<div class="layer">
+  <div class="layer-label">Layer 3 — On Site · Limited Awareness · Acts on Instinct or Cover Story</div>
+  <div class="layer-row">
+
+    <div class="node t-host" style="max-width:220px">
+      <div class="n-team">Host · Scarlet's "Husband" · First Contact</div>
+      <div class="n-name">"Barry Hanson"</div>
+      <div class="n-alias">First name his to choose · Ashton Kutcher</div>
+      <div class="n-desc">Shows up at the door in costume — goofy, unrecognizable. Cover: <em style="color:rgba(255,255,255,0.5);">"Scarlet has Covid — I'm her husband, I'm going to make money off this while she recovers."</em> Introduces the first David. Doesn't see anyone after that. Doesn't know the full show structure. Co-producer limited to doorstep. <strong style="color:rgba(255,255,255,0.45);">3-county rule from Sissy. Cannot hear her voice. Ever.</strong></div>
+      <div class="n-pitch">Pitch target: Ashton Kutcher</div>
+    </div>
+
+    <div class="node t-neutral" style="max-width:225px">
+      <div class="n-team">Driver · The Cooler · Neutral Cog · Identity EP-Only</div>
+      <div class="n-name">"Tommy Wells"</div>
+      <div class="n-alias">Identity known only to MGS2 · Partition up</div>
+      <div class="n-desc">Fully concealed. Partition between driver and passengers. Voice masked. Vehicle his choice. Never needs to exit. Can haunt or bless the Davids based purely on instinct — <strong style="color:rgba(255,255,255,0.55);">completely blind to the show's concept.</strong> Does not know that if Scarlet gets busted, everyone wins. Davids may suspect he's undercover law enforcement. He is the neutral variable. He does whatever he wants.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ LAYER 4 — THE FIELD ══════════════ -->
+<div class="layer">
+  <div class="layer-label">Layer 4 — The Field · Want Scarlet to Win · Each Thinks They're the Only Assistant · Each Told They Individually Won</div>
+  <div class="layer-row">
+
+    <div class="node t-field" style="max-width:220px">
+      <div class="n-team">David Deville B · Knuckleboom · The Closer · The Eldest</div>
+      <div class="n-name">Grant Cardone</div>
+      <div class="n-alias">Low boomer-ID risk · Elena Cardone = SO on set</div>
+      <div class="n-desc">Boomers don't recognize him — he's the millennial sales teacher. Operates the knuckleboom. Incognito in costume. The eldest of the three Davids — the others (and production) go relatively easy on him. His SO Elena Cardone appears on set. Exit line: "I have a client at closing."</div>
+      <div class="n-pitch">Pitch target: Grant Cardone</div>
+    </div>
+
+    <div class="node t-field" style="max-width:220px">
+      <div class="n-team">David Deville A · Root Paul Ice · Stump Grinder · Most Trusted</div>
+      <div class="n-name">David Bromstad</div>
+      <div class="n-alias">High boomer-ID risk · HGTV · SO on set</div>
+      <div class="n-desc">Highest recognition risk (boomers/HGTV). In Root Police uniform. <strong style="color:rgba(255,255,255,0.5);">Production burns into him the hardest</strong> — he is the most trustworthy so the stakes are higher. Costume/look is entirely Scarlet's creative call. SO joins on set. Exit line: "I have a client at closing."</div>
+      <div class="n-pitch">Pitch target: David Bromstad</div>
+    </div>
+
+    <div class="node t-field" style="max-width:220px">
+      <div class="n-team">David Deville C · Bob Katz · Mini Bobcat · Medium Risk</div>
+      <div class="n-name">David Visentin</div>
+      <div class="n-alias">Love It or List It · Mrs. Katz = Hilary Farr</div>
+      <div class="n-desc">Goes by "Bob Katz." Mini Bobcat operator. Medium recognition risk (daytime TV viewers). His SO — real or fictional, played by Hilary Farr — appears as "Mrs. Katz." Mrs. Katz is the only unmasked field cast member. Exit line: "I have a client at closing."</div>
+      <div class="n-pitch">Pitch targets: David Visentin · Hilary Farr</div>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;padding-left:12px;border-left:1px solid rgba(255,255,255,0.05)">
+      <div class="chain-box" style="max-width:360px">
+        <div class="chain-title">What the Davids Know</div>
+        They are on a real estate show. Scarlet is their agent. They want her to win.<br>
+        <strong>They don't know:</strong> Scarlet rotates each episode · Each other may exist · The opposition exists · Tommy Wells' identity · That if Scarlet gets busted, everyone gets max payout.<br>
+        They witness early Scarlets get busted (not disbarred) and <strong>lose charity that round</strong> — which makes them try harder to protect the next Scarlet.
+      </div>
+      <div class="chain-box" style="max-width:360px">
+        <div class="chain-title">The Succession Rule</div>
+        If recognized: <em>"I have a client at closing — I have to take this."</em><br>
+        Walk to van. Next David enters. Same alias, same earpiece, same show.<br>
+        <strong>Recognition risk:</strong> Bromstad HIGH · Visentin MEDIUM · Cardone LOW
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ SCARLET (center, the mark) ══════════════ -->
+<div class="mark-center">
+  <div class="mark-center-label">Layer 5 — The Mark · Believes Getting Busted = Losing Everything · It's the Opposite</div>
+  <div class="mark-center-row">
+
+    <div class="node t-mark" style="max-width:310px; text-align:left">
+      <div class="n-team">The Mark · FL Licensed Agent · Locked in Control Room · Rotating Celebrity</div>
+      <div class="n-name">Scarlet Joe Hanson</div>
+      <div class="n-alias">Different celebrity each episode · Voice sounds like Scarlett Johansson / Kerry Washington (pitch targets)</div>
+      <div class="n-desc">Earned a real FL RE license through the blind celebrity study pipeline. Locked in an isolated control room with every camera feed. <strong style="color:rgba(255,255,255,0.65);">Cannot communicate with anyone except the active David's earpiece</strong> — masked voice, one direction. Cannot contact Star, Sissy, producers, or the outside world. She is the agent of record. Her license is on the line. She watches. She cannot intervene.<br><br>The assistants believe she is the same Scarlet all season. They do not know she rotates. They do not know she gets booted and judged.<br><br><strong style="color:rgba(255,255,255,0.5);">She can't actually lose:</strong> If Frank C's team succeeds and she gets busted — she gets her own brokerage, in any FL or GA city of her choosing, fully funded. That's the prize she didn't know she was competing for.</div>
+      <div class="n-pitch">First pitch: Ron DeSantis · Men present as redhead · Women dress as they want · Scarlett Johansson / Kerry Washington = large charity prize targets</div>
+    </div>
+
+    <div class="mark-divider"></div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="node t-broker" style="max-width:240px; text-align:left">
+        <div class="n-team">Naive Broker · Blind to Full Structure · Scarlet's Lifeline (Unusable)</div>
+        <div class="n-name">Star Williams</div>
+        <div class="n-alias">Star Studded Realty Group · FL RE Broker of Record</div>
+        <div class="n-desc">Teaches one blind classroom session — never sees her students. Gets randomized paperwork about a new "Scarlet Hanson" each episode. Does not speak to Scarlet directly. Has no idea what she's supervising.<br><br>Scarlet can call Star as her one lifeline. In practice it's nearly unusable — Star is naive to the game structure. Star can escalate to Sly Stallone for guidance. She doesn't know that either.</div>
+        <div class="n-pitch">Star Williams · Star Studded Realty Group · FL RE #not-a-pitch-target — real role</div>
+      </div>
+      <div class="chain-box" style="max-width:240px">
+        <div class="chain-title">The Cover Story for Clients</div>
+        <strong>"Remote Realtor"</strong> — a new brokerage format where the agent can't physically attend, so she sends her assistants. "Makes it easier." The clients are told Scarlet is a remote realtor. They accept this. Everything about the situation is slightly off, and they feel it but can't name it.
+      </div>
+    </div>
+
+    <div class="mark-divider"></div>
+
+    <div class="node t-naive" style="max-width:225px; text-align:left;">
+      <div class="n-team">Naive · Oblivious to Scale · House Sellers</div>
+      <div class="n-name">The Clients</div>
+      <div class="n-alias">House seller / buyer · Volusia · Seminole · Lake counties</div>
+      <div class="n-desc">They signed up to sell (or buy) a house. They are interacting with unlicensed "assistants" presenting as a remote realtor's team. They sense something is off — because it is. They do not know this is a national production. They do not know the scale. They do not know Chip Diamond is the opposition's cameraman.<br><br>If a compliance error is caught and Frank C's team moves: clients may be incentivized into a formal complaint against Scarlet. That's how the legal proceedings start. If all goes well, they get a free trailer in The Villages.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ TWIST BAND ══════════════ -->
+<div class="twist-band">
+  <div class="twist-item"><strong>The Producers Want Scarlet Busted.</strong><br>Getting busted is the win condition. Frank C succeeding is the trigger.</div>
+  <div class="twist-sep"></div>
+  <div class="twist-item"><strong>Scarlet Thinks Busted = Disaster.</strong><br>She's trying to protect the Davids. Her license. The charities. She doesn't know.</div>
+  <div class="twist-sep"></div>
+  <div class="twist-item"><strong>First Bust = Everyone Wins.</strong><br>All 3 Davids: max individual charity prize. Scarlet: own brokerage, fully funded, FL or GA city of her choosing.</div>
+  <div class="twist-sep"></div>
+  <div class="twist-item"><strong>Season 2 Trigger.</strong><br>Network greenlight fires the moment the first successful bust lands. The show was always designed to keep going.</div>
+  <div class="twist-sep"></div>
+  <div class="twist-item"><strong>UPS Truck Confessionals.</strong><br>Solo cams shot inside a UPS truck parked on site. Running joke: everyone thinks it's the FBI. The paranoia is never resolved.</div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<div class="map-footer">
+  "Something is always slightly off." · Internal reference only · All celebrity names are pitch targets — no current deals · © 2026 George Sorel Group Productions · mikesoreljr@gmail.com
+</div>
+
+</div>
+</body>
+</html>
