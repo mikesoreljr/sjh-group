@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Village People — Real Estate Game Show Concept</title>
+  <meta name="description" content="The Village People: a real estate game show concept from Central Florida. Celebrity assistants compete for charity. One masked host. Something is always slightly off." />
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="data-entity" content="show-concept" />
+
+  <style>
+    .show-hero {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0d0a1a 100%);
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .show-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 60px,
+        rgba(185,28,28,0.04) 60px, rgba(185,28,28,0.04) 61px
+      );
+    }
+    .show-badge-pill {
+      display: inline-block;
+      background: var(--scarlet);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .show-title {
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+    .show-title span { color: var(--gold); }
+    .show-tagline {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .meta-pill strong { color: rgba(255,255,255,0.75); }
+    .dark-section { background: #0d0d0d; padding: 80px 0; }
+    .mid-section { background: #111; padding: 80px 0; }
+    .cast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .cast-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .cast-card.host-card { border-color: var(--scarlet); background: rgba(185,28,28,0.07); }
+    .cast-card.broker-card { border-color: var(--gold); background: rgba(202,138,4,0.06); }
+    .cast-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.75rem;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,255,255,0.08);
+    }
+    .host-card .cast-avatar { border-color: var(--scarlet); background: rgba(185,28,28,0.15); }
+    .broker-card .cast-avatar { border-color: var(--gold); background: rgba(202,138,4,0.12); }
+    .cast-role {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .host-card .cast-role { color: var(--scarlet); }
+    .cast-name { font-size: 1rem; font-weight: 700; color: white; font-family: var(--font-heading); margin-bottom: 10px; }
+    .cast-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+    .cast-pitch { font-size: 0.7rem; color: rgba(255,255,255,0.22); font-style: italic; margin-top: 8px; }
+    .game-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-left: 4px solid var(--scarlet);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .game-card.gold-accent { border-left-color: var(--gold); }
+    .format-label {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--scarlet); margin-bottom: 8px;
+    }
+    .game-card.gold-accent .format-label { color: var(--gold); }
+    .prize-box {
+      background: linear-gradient(135deg, #92400e 0%, #78350f 100%);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .pitch-cta-section {
+      background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%);
+      padding: 80px 0;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .show-title { font-size: 3rem; }
+      .cast-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .cast-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav" style="background:#0a0a0a; border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" style="color:rgba(255,255,255,0.35); font-size:0.85rem; font-family:var(--font-body);">← George Sorel Group</a>
+    <span style="font-size:0.68rem; color:rgba(255,255,255,0.2); letter-spacing:0.12em; text-transform:uppercase;">Concept · In Development</span>
+  </div>
+</nav>
+
+<!-- ── Show Hero ── -->
+<section class="show-hero">
+  <div class="container" style="position:relative; z-index:1;">
+    <div class="show-badge-pill">🎬 Pilot Concept · Seeking Distribution</div>
+    <h1 class="show-title">The Village<br><span>People</span></h1>
+    <p class="show-tagline">The real estate game show where the commissions go to charity, the celebrities follow orders they don't fully understand, and something is always slightly… <em>off.</em></p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:16px;">
+      <span class="meta-pill">🎭 Host: <strong>Concealed</strong></span>
+      <span class="meta-pill">⭐ Broker: <strong>Star Studded Realty Group</strong></span>
+      <span class="meta-pill">📺 Pitching: <strong>Netflix · HGTV · Discovery+</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Premise ── -->
+<section class="dark-section">
+  <div class="container">
+    <div class="grid-2" style="gap:64px; align-items:center;">
+      <div>
+        <p class="eyebrow" style="color:var(--gold);">The Premise</p>
+        <h2 style="color:white;">Empty Nesters Find Their Next Chapter.<br>Young Families Find Their First.</h2>
+        <p style="color:rgba(255,255,255,0.6); line-height:1.75; font-size:1.02rem;">Central Florida's I-4 and 441 corridor is loaded with established homeowners sitting on equity they don't fully understand, in homes larger than they need, minutes from one of the fastest-growing retirement destinations in America: <strong style="color:white;">The Villages.</strong></p>
+        <p style="color:rgba(255,255,255,0.6); line-height:1.75;">The show moves them — elegantly, willingly, lucratively — and in doing so opens the door for the next generation of Florida families. It's not just a game show. It's a housing market event wrapped in prime time.</p>
+      </div>
+      <div>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:36px;">
+          <p class="eyebrow" style="color:var(--scarlet);">The Market Math</p>
+          <ul class="service-list" style="color:rgba(255,255,255,0.6);">
+            <li>Central FL has massive 3–5BR inventory held by empty nesters</li>
+            <li>The Villages is one of the fastest-growing metros in the U.S.</li>
+            <li>Young families compete for that same inventory near top school corridors</li>
+            <li>The show creates willing sellers, happy buyers, and a television event</li>
+            <li>Every commission feeds a charity — nobody loses on screen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Cast ── -->
+<section class="mid-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <p class="eyebrow" style="color:var(--gold);">The Cast</p>
+      <h2 style="color:white;">Three Assistants. One Broker. One Masked Host.</h2>
+      <p style="color:rgba(255,255,255,0.4); max-width:560px; margin:0 auto; font-size:0.9rem;">Three celebrity real estate personalities compete as "assistants" — guided by prompts from the agent of record, concealed behind the camera. Their winnings aren't theirs to keep.</p>
+    </div>
+
+    <div class="cast-grid">
+
+      <div class="cast-card host-card">
+        <div class="cast-avatar">🎭</div>
+        <div class="cast-role">Agent of Record · Executive Producer</div>
+        <div class="cast-name">Scarlet Hanson</div>
+        <div class="cast-desc">Identity masked. Voice altered. Drives a chip truck between takes. FL Licensed RE Sales Associate under Star Studded Realty Group. Pledges 100% of agent-side commissions to the show's operating costs and the three assistants' involvement. <em style="color:rgba(255,255,255,0.25);">Built the whole thing to fund a tree company.</em></div>
+      </div>
+
+      <div class="cast-card broker-card">
+        <div class="cast-avatar">⭐</div>
+        <div class="cast-role">Broker of Record · Boss · Co-EP</div>
+        <div class="cast-name">Star Williams</div>
+        <div class="cast-desc">Star Studded Realty Group. The one person in the room who knows Scarlet's face. Supervises all transactions. Earns her broker split like normal — the show is Scarlet's chaos, not hers. Star just makes sure it's legal.</div>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-avatar">🎨</div>
+        <div class="cast-role">Assistant A — Design Eye</div>
+        <div class="cast-name">The Design Eye</div>
+        <div class="cast-desc">HGTV personality. Transforms a listing into a dream before it ever hits the MLS. Lends credibility, charisma, and a camera-ready presence to every walkthrough. Competing for a design and arts charity of their choosing.</div>
+        <div class="cast-pitch">Pitch target: David Bromstad</div>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-avatar">📈</div>
+        <div class="cast-role">Assistant B — The Closer</div>
+        <div class="cast-name">The Closer</div>
+        <div class="cast-desc">Real estate mogul. Numbers first, close fast. Will outpace the other two before they finish their morning brief. Competing for a financial literacy charity of their choosing.</div>
+        <div class="cast-pitch">Pitch target: Grant Cardone</div>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-avatar">🏡</div>
+        <div class="cast-role">Assistant C — The Negotiator</div>
+        <div class="cast-name">The Negotiator</div>
+        <div class="cast-desc">Property show veteran. Reads sellers, buyers, and markets in one glance. Patient, precise, impossible to rattle. Competing for a community housing charity of their choosing.</div>
+        <div class="cast-pitch">Pitch target: second David — property show veteran TBD</div>
+      </div>
+
+      <div class="cast-card" style="border-color:rgba(255,105,180,0.4); background:rgba(255,105,180,0.05);">
+        <div class="cast-avatar" style="border-color:rgba(255,105,180,0.4); background:rgba(255,105,180,0.08);">💌</div>
+        <div class="cast-role" style="color:#f9a8d4;">The Prompt Master</div>
+        <div class="cast-name">Sissy Bestie</div>
+        <div class="cast-desc">Off-screen. Never seen. Generates the real-time situational prompts that are fed to the assistants via earpiece during every showing. The source of the <em>something is off</em> feeling the clients can never quite name.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── How The Show Actually Works ── -->
+<section class="dark-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <p class="eyebrow" style="color:var(--scarlet);">How It Works</p>
+      <h2 style="color:white;">The Control Room Is a Brokerage Office</h2>
+      <p style="color:rgba(255,255,255,0.4); max-width:600px; margin:0 auto; font-size:0.9rem;">Scarlet and Star sit at Star's office watching the live feed. Scarlet talks into a mic. The assistants hear it in their ear. Star tells Scarlet when she's gone too far. That's the whole operation.</p>
+    </div>
+
+    <div class="grid-2" style="gap:32px; margin-bottom:40px;">
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:36px;">
+        <p class="eyebrow" style="color:#f9a8d4;">The Prompt System</p>
+        <h3 style="color:white; margin-bottom:16px;">Real-Time Earpiece Chaos</h3>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.7; margin-bottom:20px;">Sissy Bestie generates prompts off-screen. The assistants receive them live via earpiece and have to work them into the showing naturally — or as naturally as humanly possible. The clients never know. They just feel like something is slightly, inexplicably, wonderfully off.</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="background:rgba(255,255,255,0.04); border-radius:8px; padding:12px 16px; font-size:0.82rem; color:rgba(255,255,255,0.6); font-style:italic;">"Sell the master bedroom exclusively using a deep Southern accent."</div>
+          <div style="background:rgba(255,255,255,0.04); border-radius:8px; padding:12px 16px; font-size:0.82rem; color:rgba(255,255,255,0.6); font-style:italic;">"Hug their youngest child exactly three times in the next five minutes."</div>
+          <div style="background:rgba(255,255,255,0.04); border-radius:8px; padding:12px 16px; font-size:0.82rem; color:rgba(255,255,255,0.6); font-style:italic;">"Pretend you've never seen a kitchen this size."</div>
+          <div style="background:rgba(255,255,255,0.04); border-radius:8px; padding:12px 16px; font-size:0.82rem; color:rgba(255,255,255,0.6); font-style:italic;">"Tell them the garage would make an excellent tree storage facility."</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:28px;">
+          <p class="eyebrow" style="color:var(--gold);">The Control Room</p>
+          <p style="color:rgba(255,255,255,0.55); line-height:1.65; font-size:0.9rem;"><strong style="color:rgba(255,255,255,0.75);">Scarlet</strong> watches the live feed and talks into the mic. <strong style="color:rgba(255,255,255,0.75);">Star</strong> sits beside her and says "that's enough" when Scarlet's prompts cross a line. It's a two-person operation running a three-person field crew with real clients in a real house. It is, admittedly, a lot.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:28px;">
+          <p class="eyebrow" style="color:var(--scarlet);">Guest Assistants</p>
+          <p style="color:rgba(255,255,255,0.55); line-height:1.65; font-size:0.9rem;">In addition to the three regulars, episodes can feature rotating guest real estate personalities. The assistants don't know if they're competing against a regular or a surprise guest until they show up on site. The network picks the guests. The audience votes for who stays.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:28px;">
+          <p class="eyebrow" style="color:rgba(255,255,255,0.3);">Network's Role</p>
+          <p style="color:rgba(255,255,255,0.4); font-size:0.85rem; line-height:1.6;">The network owns the prize structure. Multipliers, gifts, cash donations, and any client-facing perks are the network's budget. Scarlet provides the transactions. The network provides the spectacle. Star makes sure it's legal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Game Formats ── -->
+<section class="mid-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <p class="eyebrow" style="color:var(--scarlet);">Episode Formats</p>
+      <h2 style="color:white;">The Games</h2>
+      <p style="color:rgba(255,255,255,0.4); max-width:540px; margin:0 auto; font-size:0.9rem;">Each episode runs a different format. The assistants don't always know which one until they arrive on site. The host knows. The audience knows. The sellers definitely don't.</p>
+    </div>
+
+    <div class="grid-2" style="gap:24px;">
+
+      <div class="game-card">
+        <div class="format-label">Format 01 — The Sprint</div>
+        <h3 style="color:white; margin-bottom:12px;">Fastest Close Wins</h3>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.65;">All three assistants work the same listing. First to a signed, clean contract wins the full combined commission pool — multiplied by a network-set factor — donated to their charity. Speed is the variable. Ethics is the floor. It has to be a real deal or it doesn't count.</p>
+      </div>
+
+      <div class="game-card gold-accent">
+        <div class="format-label">Format 02 — The Slow Burn</div>
+        <h3 style="color:white; margin-bottom:12px;">Last to Close (But Still Closing) Wins</h3>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.65;">The inverse. Keep the deal alive, the price intact, the seller engaged — but don't close it first. Last one holding a live, viable deal when the others fold takes everything. Sellers think they're dealing with unusually methodical agents. They are. They just don't know they're on television.</p>
+      </div>
+
+      <div class="game-card">
+        <div class="format-label">Format 03 — The Persuasion</div>
+        <h3 style="color:white; margin-bottom:12px;">Move the Unmovable</h3>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.65;">The seller has said they'll never leave. Thirty years in the house. The assistants get one day and one curated showing of a Villages property. First to return a signed relocation intent form wins. The show provides the tour. The assistants provide the vision. Scarlet provides the earpiece prompts.</p>
+      </div>
+
+      <div class="game-card gold-accent">
+        <div class="format-label">Format 04 — The Trifecta</div>
+        <h3 style="color:white; margin-bottom:12px;">Tree. Insurance. Real Estate.</h3>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.65;">The assistant who orchestrates all three services for one client in one episode — tree work, an insurance review, and a completed transaction — wins. This is where the show's origin story becomes visible. <em style="color:rgba(255,255,255,0.3);">This is Scarlet's episode.</em></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Money Structure ── -->
+<section class="dark-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <p class="eyebrow" style="color:var(--gold);">The Money</p>
+      <h2 style="color:white;">Where Every Dollar Goes</h2>
+      <p style="color:rgba(255,255,255,0.4); max-width:560px; margin:0 auto; font-size:0.9rem;">This is not a vague pitch about charity. Here is exactly how the money flows, every episode.</p>
+    </div>
+
+    <div style="max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:16px;">
+
+      <div style="display:grid; grid-template-columns:auto 1fr; gap:0; border-radius:var(--radius); overflow:hidden;">
+        <div style="background:var(--gold); padding:20px 24px; display:flex; align-items:center; justify-content:center; min-width:80px;">
+          <span style="font-size:1.5rem;">⭐</span>
+        </div>
+        <div style="background:rgba(202,138,4,0.08); border:1px solid rgba(202,138,4,0.2); border-left:none; padding:20px 28px;">
+          <strong style="color:white; font-size:0.95rem;">Star Williams — Broker Split</strong>
+          <p style="color:rgba(255,255,255,0.5); font-size:0.83rem; margin:6px 0 0; line-height:1.5;">Star earns her standard broker commission split on every transaction. She is the licensed broker of record. The show is Scarlet's circus — Star just makes sure it's compliant.</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:auto 1fr; gap:0; border-radius:var(--radius); overflow:hidden;">
+        <div style="background:var(--scarlet); padding:20px 24px; display:flex; align-items:center; justify-content:center; min-width:80px;">
+          <span style="font-size:1.5rem;">🎭</span>
+        </div>
+        <div style="background:rgba(185,28,28,0.08); border:1px solid rgba(185,28,28,0.2); border-left:none; padding:20px 28px;">
+          <strong style="color:white; font-size:0.95rem;">Scarlet Hanson — Agent-Side Commission → Show Expenses + Assistants</strong>
+          <p style="color:rgba(255,255,255,0.5); font-size:0.83rem; margin:6px 0 0; line-height:1.5;">Scarlet pledges 100% of the agent-side commission to the show. That pool covers production costs and the three assistants' per-episode compensation. Scarlet makes nothing. That's the bit. The tree company subsidizes the show until the network deal closes.</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:auto 1fr; gap:0; border-radius:var(--radius); overflow:hidden;">
+        <div style="background:#1d4ed8; padding:20px 24px; display:flex; align-items:center; justify-content:center; min-width:80px;">
+          <span style="font-size:1.5rem;">📺</span>
+        </div>
+        <div style="background:rgba(29,78,216,0.08); border:1px solid rgba(29,78,216,0.3); border-left:none; padding:20px 28px;">
+          <strong style="color:white; font-size:0.95rem;">The Network — Prize Pool, Multipliers &amp; Gifts</strong>
+          <p style="color:rgba(255,255,255,0.5); font-size:0.83rem; margin:6px 0 0; line-height:1.5;">The network owns and funds the prize structure. They set the multipliers, the client gifts, the charity donation amounts, and any on-screen spectacle. Scarlet provides the deals. The network provides the scale.</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:auto 1fr; gap:0; border-radius:var(--radius); overflow:hidden;">
+        <div style="background:#15803d; padding:20px 24px; display:flex; align-items:center; justify-content:center; min-width:80px;">
+          <span style="font-size:1.5rem;">🏆</span>
+        </div>
+        <div style="background:rgba(21,128,61,0.08); border:1px solid rgba(21,128,61,0.25); border-left:none; padding:20px 28px;">
+          <strong style="color:white; font-size:0.95rem;">The Winning Assistant's Charity — Network Prize Amount</strong>
+          <p style="color:rgba(255,255,255,0.5); font-size:0.83rem; margin:6px 0 0; line-height:1.5;">The winner names the charity. The network writes the check. The charity gets real money. The assistant gets the clip. The clip gets the publicity. The publicity gets back to Scarlet's tree company. That's the whole play.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── The Host ── -->
+<section class="dark-section">
+  <div class="container">
+    <div class="grid-2" style="gap:64px; align-items:center;">
+      <div>
+        <p class="eyebrow" style="color:var(--scarlet);">The Host — Scarlet Hanson</p>
+        <h2 style="color:white;">The Most Interesting Agent You've Never Seen</h2>
+        <p style="color:rgba(255,255,255,0.6); line-height:1.75;">FL Licensed Sales Associate. All-lines insurance producer. Arborist. Executive producer. Identity masked on every episode — voice altered, face obscured. Drives a branded chip truck through commercial breaks.</p>
+        <p style="color:rgba(255,255,255,0.6); line-height:1.75;">Scarlet got into real estate to buy a better truck. Got an insurance license to protect the clients who hired the truck. Built an arborist brand the community trusts. And ended up with a concept that could move an entire market segment while the audience spends two seasons trying to figure out who's behind the camera.</p>
+        <p style="color:rgba(255,255,255,0.35); font-size:0.85rem; line-height:1.6; font-style:italic;">That's the second sale.</p>
+        <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:10px;">
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.5);">RE Lic. #SL3472560</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.5);">Ins. Lic. #G176821</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.5);">Arborist Agent — DeBary, FL</span>
+        </div>
+      </div>
+      <div>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); padding:36px; margin-bottom:20px;">
+          <p class="eyebrow" style="color:var(--gold);">Why the Mask?</p>
+          <p style="color:rgba(255,255,255,0.55); line-height:1.7;">The real estate industry is built on trust and face. Remove the face and what's left is the deal. The mask is the show's central provocation. Who is this person? Why won't they reveal themselves? The audience chases a reveal that may — or may not — come by the season finale.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); padding:28px;">
+          <p class="eyebrow" style="color:var(--scarlet);">Legal Note</p>
+          <p style="color:rgba(255,255,255,0.4); font-size:0.82rem; line-height:1.65;">The agent of record's identity is fully disclosed in all transaction paperwork as required by Florida law. The mask is show business, not evasion. Star Williams, Broker, is always the fully disclosed supervising broker on every transaction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The Connection ── -->
+<section class="mid-section">
+  <div class="container text-center">
+    <p class="eyebrow" style="color:var(--gold);">Why This Concept Exists</p>
+    <h2 style="color:white; max-width:700px; margin:0 auto 24px;">The Show Is the Third Sale.<br>Tree Service Was the First.</h2>
+    <p style="color:rgba(255,255,255,0.55); max-width:620px; margin:0 auto; line-height:1.75; font-size:1rem;">Scarlet started with a truck and a chainsaw. The insurance license came because clients needed better coverage than what they were getting. The real estate license came because the same clients were sitting on property decisions nobody was helping them think through. The show is where all three converge — and where the Central Florida market gets a televised shakeup it didn't see coming.</p>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:40px;">
+      <div style="text-align:center; padding:24px; background:rgba(255,255,255,0.03); border-radius:var(--radius); border:1px solid rgba(255,255,255,0.07); min-width:150px;">
+        <div style="font-size:2rem; margin-bottom:8px;">🌳</div>
+        <div style="color:rgba(255,255,255,0.7); font-weight:600; font-size:0.9rem;">Arborist Agent</div>
+        <div style="color:rgba(255,255,255,0.3); font-size:0.75rem;">The first sale</div>
+      </div>
+      <div style="text-align:center; padding:24px; background:rgba(255,255,255,0.03); border-radius:var(--radius); border:1px solid rgba(255,255,255,0.07); min-width:150px;">
+        <div style="font-size:2rem; margin-bottom:8px;">🛡️</div>
+        <div style="color:rgba(255,255,255,0.7); font-weight:600; font-size:0.9rem;">SJH Insurance</div>
+        <div style="color:rgba(255,255,255,0.3); font-size:0.75rem;">The second sale</div>
+      </div>
+      <div style="text-align:center; padding:24px; background:rgba(255,255,255,0.03); border-radius:var(--radius); border:1px solid rgba(255,255,255,0.07); min-width:150px;">
+        <div style="font-size:2rem; margin-bottom:8px;">🏠</div>
+        <div style="color:rgba(255,255,255,0.7); font-weight:600; font-size:0.9rem;">Real Estate</div>
+        <div style="color:rgba(255,255,255,0.3); font-size:0.75rem;">The third sale</div>
+      </div>
+      <div style="text-align:center; padding:24px; background:rgba(185,28,28,0.1); border-radius:var(--radius); border:1px solid rgba(185,28,28,0.3); min-width:150px;">
+        <div style="font-size:2rem; margin-bottom:8px;">📺</div>
+        <div style="color:white; font-weight:700; font-size:0.9rem;">The Show</div>
+        <div style="color:var(--scarlet); font-size:0.75rem; font-weight:600;">The fourth sale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Funding Partners ── -->
+<section class="dark-section" id="partners">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <p class="eyebrow" style="color:var(--gold);">Financial Partnership</p>
+      <h2 style="color:white;">Built for a Central Florida Partner</h2>
+      <p style="color:rgba(255,255,255,0.45); max-width:580px; margin:0 auto; font-size:0.9rem;">This show moves real estate transactions across Volusia, Lake, and Seminole counties. Every episode closes a deal. Every deal needs a lender. That's not an afterthought — it's a co-starring role.</p>
+    </div>
+
+    <div class="grid-2" style="gap:48px; align-items:start;">
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:40px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <div style="width:56px; height:56px; border-radius:50%; background:rgba(0,100,200,0.15); border:2px solid rgba(0,140,255,0.3); display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">🏦</div>
+          <div>
+            <p class="eyebrow" style="color:#60a5fa; margin-bottom:4px;">Target Partner</p>
+            <h3 style="color:white; margin:0; font-size:1.2rem;">Fairwinds Credit Union</h3>
+          </div>
+        </div>
+        <p style="color:rgba(255,255,255,0.6); line-height:1.7; margin-bottom:20px;">Central Florida's largest credit union. Member-owned, community-focused, and rooted in the exact counties this show operates in — Seminole, Orange, Lake, and Volusia. A Fairwinds partnership isn't just a logo in the end credits. It's the financing arm of every transaction the show produces.</p>
+        <ul class="service-list" style="color:rgba(255,255,255,0.55);">
+          <li>On-screen financing partner for every episode transaction</li>
+          <li>Pre-approval pipeline for show participants</li>
+          <li>Villages-specific mortgage products (55+ community financing)</li>
+          <li>Presenting sponsor with recurring community visibility</li>
+          <li>Co-branded financial literacy segments between formats</li>
+        </ul>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:28px;">
+          <p class="eyebrow" style="color:var(--scarlet);">Production Funding</p>
+          <h3 style="color:white; font-size:1rem; margin-bottom:10px;">Seed the Pilot</h3>
+          <p style="color:rgba(255,255,255,0.5); font-size:0.88rem; line-height:1.65;">Fairwinds co-invests in the pilot production in exchange for presenting sponsorship, exclusive on-screen mortgage placement, and first-right-of-refusal on the series financial partnership if distributed. All production costs are recouped from network licensing fees.</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:28px;">
+          <p class="eyebrow" style="color:var(--gold);">Community Development Angle</p>
+          <h3 style="color:white; font-size:1rem; margin-bottom:10px;">CRA & CDFI-Aligned</h3>
+          <p style="color:rgba(255,255,255,0.5); font-size:0.88rem; line-height:1.65;">The show facilitates home ownership transitions in Central Florida communities — a mission-aligned investment for a member-owned institution. Each episode is a documented community reinvestment event with measurable housing outcomes.</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:28px;">
+          <p class="eyebrow" style="color:rgba(255,255,255,0.35);">Other Partnership Tiers</p>
+          <p style="color:rgba(255,255,255,0.4); font-size:0.83rem; line-height:1.6;">Title insurance. Home warranty. HOA management. Local law firms. Insurance carriers. Each transaction is a multi-vendor event — structured for layered sponsor integration across every episode.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Dual Pitch ── -->
+<section style="background:#0a0a0a; padding:80px 0;">
+  <div class="container">
+    <div class="grid-2" style="gap:40px; align-items:start;">
+
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:40px;">
+        <p class="eyebrow" style="color:var(--scarlet);">For Talent Management</p>
+        <h2 style="color:white; font-size:1.5rem; margin-bottom:20px;">What Your Client Gets</h2>
+        <ul class="service-list" style="color:rgba(255,255,255,0.6); margin-bottom:24px;">
+          <li>Named role in a fully structured show — not a cameo</li>
+          <li>Per-episode compensation from Scarlet's commission pledge</li>
+          <li>Their chosen charity wins real network-funded prize money every episode</li>
+          <li>Zero financial risk — they don't hold the RE license, Scarlet does</li>
+          <li>High-entertainment format engineered for viral clip culture</li>
+          <li>The earpiece prompts are the show — your client gets to be genuinely funny on camera without writing a single word</li>
+        </ul>
+        <p style="color:rgba(255,255,255,0.3); font-size:0.75rem; line-height:1.6;">Pitch targets: David Bromstad (Warner Bros. Discovery / HGTV), Grant Cardone (10X Media), second David TBD. No current deals exist — this is the pitch document.</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:20px; display:inline-block;">Reach the EP</a>
+      </div>
+
+      <div style="background:rgba(0,80,180,0.06); border:1px solid rgba(0,120,255,0.2); border-radius:var(--radius); padding:40px;">
+        <p class="eyebrow" style="color:#60a5fa;">For Fairwinds Credit Union</p>
+        <h2 style="color:white; font-size:1.5rem; margin-bottom:20px;">A Central Florida Institution<br>on a Central Florida Show</h2>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.7; margin-bottom:20px;">Every episode is a real transaction in Volusia, Seminole, or Lake County. Every transaction needs a mortgage. Every family moving into a home needs a lender they trust. Fairwinds is that lender — and this show puts that relationship on screen, in the community, every episode.</p>
+        <ul class="service-list" style="color:rgba(255,255,255,0.5); margin-bottom:24px;">
+          <li>Presenting sponsor — branded on screen every episode</li>
+          <li>Exclusive on-screen mortgage partner for all show transactions</li>
+          <li>Pre-approval pipeline for show participants and relocated families</li>
+          <li>Villages-specific product visibility — 55+ mortgage and HELOC</li>
+          <li>CRA-aligned community reinvestment narrative, documented per episode</li>
+          <li>Pilot co-investment structure with recoupment from network licensing</li>
+        </ul>
+        <a href="contact.html" class="btn" style="background:#1d4ed8; color:white; display:inline-block;">Start the Conversation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Distribution CTA ── -->
+<section class="pitch-cta-section">
+  <div class="container">
+    <p class="eyebrow" style="color:rgba(255,255,255,0.4);">Distribution</p>
+    <h2 style="color:white; font-size:clamp(1.75rem, 4vw, 2.75rem); max-width:640px; margin:0 auto 20px;">The Pilot Is Ready to Be Made.</h2>
+    <p style="color:rgba(255,255,255,0.65); max-width:540px; margin:0 auto 36px; font-size:1rem; line-height:1.7;">Market mechanics: locked. Legal structure: locked. Format: locked. Talent targets: identified. Financial partner: in conversation. Seeking a distribution partner for the pilot — Netflix, HGTV, Discovery+, Peacock. The show works anywhere equity meets a screen and a masked woman in a chip truck.</p>
+    <a href="contact.html" class="btn" style="background:white; color:var(--scarlet); font-size:1rem; padding:14px 40px;">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer" style="background:#080808;">
+  <div class="container">
+    <div style="text-align:center; padding:40px 0 24px; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p style="color:rgba(255,255,255,0.25); font-size:0.75rem; line-height:1.8; max-width:680px; margin:0 auto;">
+        <em>The Village People</em> is a concept in development. Celebrity names listed are pitch targets only and do not imply any current involvement, agreement, or endorsement.
+        All real estate transactions conducted through <strong style="color:rgba(255,255,255,0.35);">Star Studded Realty Group</strong>, Broker Star Williams, FL RE Commission Licensed.
+        George Sorel, Sales Associate Lic. #SL3472560. Insurance services: SJH Insurance Agency, FL Ins. Lic. #G176821.
+        Reality TV participants are cast and sign consent/release agreements prior to broadcast per standard industry practice.
+      </p>
+    </div>
+    <div class="footer-bottom" style="border-color:rgba(255,255,255,0.06);">
+      <span style="color:rgba(255,255,255,0.25);">&copy; 2026 George Sorel Group. All rights reserved.</span>
+      <a href="index.html" style="color:rgba(255,255,255,0.25); font-size:0.85rem; text-decoration:none;">← Back to George Sorel Group</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
