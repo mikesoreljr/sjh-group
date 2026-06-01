@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Scarlet Joe Hanson Group — Central Florida</title>
+  <meta name="description" content="Contact Scarlet Joe Hanson for tree service estimates, insurance quotes, or commercial real estate inquiries across Volusia, Lake and Seminole counties." />
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="data-entity" content="group" />
+
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+    .contact-info-card { background: var(--charcoal); color: var(--white); padding: 40px; border-radius: var(--radius); }
+    .contact-info-card h3 { color: var(--white); font-size: 1rem; margin-bottom: 6px; }
+    .contact-info-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 0; }
+    .contact-row { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px; }
+    .contact-row-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><span>Scarlet</span> Joe Hanson Group</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="arborist-agent.html">Arborist Agent</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Page Hero ── -->
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow" style="color:var(--gold);">Tree Service · Insurance · Real Estate</p>
+    <h1>Get in Touch</h1>
+    <p class="lead">One form, one agent. Tell me what you need and I'll get back to you the same day.</p>
+  </div>
+</section>
+
+<!-- ── Contact Section ── -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Contact Info -->
+      <div>
+        <div class="contact-info-card">
+          <p class="eyebrow" style="color:var(--gold);">Reach Out Directly</p>
+          <h2 style="color:var(--white); font-size:1.5rem; margin-bottom:32px;">Scarlet Joe Hanson</h2>
+
+          <div class="contact-row">
+            <div class="contact-row-icon">📞</div>
+            <div>
+              <h3>Phone / Text</h3>
+              <!-- Replace with your actual number -->
+              <p><a href="tel:+1XXXXXXXXXX" style="color:rgba(255,255,255,0.7);">(XXX) XXX-XXXX</a></p>
+              <p style="font-size:0.8rem; color:rgba(255,255,255,0.45);">Call or text — same number</p>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-icon">📧</div>
+            <div>
+              <h3>Email</h3>
+              <!-- Replace with your actual email -->
+              <p><a href="mailto:scarlet@sjhgroup.com" style="color:rgba(255,255,255,0.7);">scarlet@sjhgroup.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-icon">📍</div>
+            <div>
+              <h3>Based In</h3>
+              <p>DeBary, Florida</p>
+              <p style="font-size:0.8rem; color:rgba(255,255,255,0.45);">Serving Volusia, Lake &amp; Seminole Counties</p>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-row-icon">🕐</div>
+            <div>
+              <h3>Hours</h3>
+              <p>Mon–Fri: 8am – 6pm</p>
+              <p>Sat: 9am – 2pm</p>
+              <p style="font-size:0.8rem; color:rgba(255,255,255,0.45);">Storm emergencies: anytime — text first</p>
+            </div>
+          </div>
+
+          <hr style="border-color:rgba(255,255,255,0.1); margin:28px 0;" />
+
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.45); line-height:1.6;">
+            <strong style="color:rgba(255,255,255,0.6);">Real Estate:</strong> Scarlet Joe Hanson, Licensed Sales Associate,
+            Star Studded Realty Group, Broker Star Williams. FREC Licensed.
+          </p>
+        </div>
+
+        <!-- Heroes callout -->
+        <div class="card" style="margin-top:24px; border-color:var(--gold); background:var(--gold-lite);">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <span style="font-size:1.5rem;">⭐</span>
+            <h3 style="margin:0;">Heroes Program</h3>
+          </div>
+          <p style="margin:0; font-size:0.9rem; color:var(--gray-dark);">
+            Law enforcement, teachers, military, EMS, healthcare, and airline professionals — mention your profession and ask about Heroes pricing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <p class="eyebrow">Send a Message</p>
+        <h2 style="margin-bottom:28px;">What Can We Help With?</h2>
+
+        <!--
+          To make this form work for free, replace the action URL below with your Formspree endpoint.
+          Sign up at formspree.io, create a form, and paste the endpoint here.
+          Example: action="https://formspree.io/f/yourformid"
+        -->
+        <form action="#" method="POST">
+
+          <div class="grid-2" style="gap:16px;">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first_name" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last_name" required placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="grid-2" style="gap:16px;">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(407) 555-0100" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">What do you need? *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service…</option>
+              <option value="tree-estimate">Tree Service — Free Estimate</option>
+              <option value="tree-emergency">Tree Service — Storm Emergency</option>
+              <option value="privacy-trees">Privacy Tree Planting</option>
+<option value="re-buy">Real Estate — Buying</option>
+              <option value="re-lease">Real Estate — Leasing / Tenant Rep</option>
+              <option value="re-invest">Real Estate — Investment</option>
+              <option value="heroes">Heroes Program Inquiry</option>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="area">Your City or Area *</label>
+            <input type="text" id="area" name="area" required placeholder="DeBary, Sanford, Mt Dora…" />
+          </div>
+
+          <div class="form-group">
+            <label for="hero-status">Are you a hero? (optional)</label>
+            <select id="hero-status" name="hero_status">
+              <option value="">Prefer not to say / Not applicable</option>
+              <option value="law-enforcement">Law Enforcement</option>
+              <option value="teacher">Teacher / Educator</option>
+              <option value="military">Military / Veteran</option>
+              <option value="ems">EMS / First Responder</option>
+              <option value="healthcare">Healthcare Worker</option>
+              <option value="airline">Airline Professional</option>
+              <option value="firefighter">Firefighter</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell me more *</label>
+            <textarea id="message" name="message" required placeholder="Describe what you're looking for. The more detail you give, the faster I can help."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px;">
+            Send Message
+          </button>
+
+          <p style="font-size:0.75rem; color:var(--gray-mid); margin-top:12px; text-align:center;">
+            I respond same business day. No spam, no lists. Just a reply from me.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Areas Quick Reference ── -->
+<section class="section-sm bg-lite">
+  <div class="container text-center">
+    <p class="eyebrow">Service Area</p>
+    <div class="areas-list" style="justify-content:center; margin-top:12px;">
+      <span class="area-tag">DeBary</span>
+      <span class="area-tag">Sanford</span>
+      <span class="area-tag">Mt Dora</span>
+      <span class="area-tag">Eustis</span>
+      <span class="area-tag">Leesburg</span>
+      <span class="area-tag">Orange City</span>
+      <span class="area-tag">Deltona</span>
+      <span class="area-tag">Lake Mary</span>
+      <span class="area-tag">Longwood</span>
+      <span class="area-tag">Tavares</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>Scarlet</span> Joe Hanson Group</h3>
+        <p style="font-size:0.875rem; margin-bottom:16px;">Real Estate · Arborist Services<br>Serving Central Florida</p>
+        <p style="font-size:0.8rem;">DeBary · Sanford · Mt Dora · Eustis · Leesburg</p>
+      </div>
+      <div>
+        <h4>Arborist Agent</h4>
+        <ul>
+          <li><a href="arborist-agent.html">Overview</a></li>
+          <li><a href="arborist-agent.html#services">Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Real Estate</h4>
+        <ul>
+          <li><a href="real-estate.html">Overview</a></li>
+          <li><a href="real-estate.html#properties">Property Types</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Real Estate Disclosure:</strong> Scarlet Joe Hanson is a Licensed Real Estate Sales Associate with
+      Star Studded Realty Group, Broker Star Williams. Florida Real Estate Commission licensed. Equal Housing Opportunity.
+      Tree care services provided by Arborist Agent, fully insured.
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Scarlet Joe Hanson Group. All rights reserved.</span>
+      <span>Equal Housing Opportunity &nbsp;|&nbsp; DeBary, FL</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

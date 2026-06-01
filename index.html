@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scarlet Joe Hanson Group | Real Estate · Arborist Services — Central Florida</title>
+  <meta name="description" content="Scarlet Joe Hanson Group serves Volusia, Lake and Seminole counties with commercial real estate and professional tree care. Proud to serve Florida's heroes." />
+  <meta name="keywords" content="real estate DeBary, insurance Sanford, tree service Mt Dora, Arborist Agent, Volusia County, Lake County, Seminole County" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Scarlet Joe Hanson Group" />
+  <meta property="og:description" content="Real Estate · Insurance · Arborist Services — Central Florida" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Data entity: group — for splitting into sub-sites later -->
+  <meta name="data-entity" content="group" />
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><span>Scarlet</span> Joe Hanson Group</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="arborist-agent.html">Arborist Agent</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+    <div class="hero-content">
+      <p class="eyebrow" style="color: var(--gold);">Volusia · Lake · Seminole Counties</p>
+      <h1>Your <span>Central Florida</span><br>Agent for Everything</h1>
+      <p class="lead">Commercial real estate expertise and professional tree care — serving the communities of DeBary, Sanford, Mt Dora, Eustis, and Leesburg.</p>
+      <div class="hero-badges">
+        <span class="badge">🏡 Commercial Real Estate</span>
+        <span class="badge">🌳 Arborist Agent</span>
+        <span class="badge">⭐ Heroes Discount</span>
+      </div>
+      <div class="btn-group">
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-truck" style="position:relative;">
+      <img src="truck-side.jpg" alt="Arborist Agent truck"
+           style="width:100%; border-radius:12px; box-shadow:0 24px 64px rgba(0,0,0,0.5); transform:perspective(800px) rotateY(-4deg);" />
+      <div style="position:absolute; bottom:-12px; left:50%; transform:translateX(-50%);
+                  background:var(--gold); color:var(--white); font-size:0.75rem; font-weight:700;
+                  letter-spacing:0.08em; text-transform:uppercase; padding:6px 18px;
+                  border-radius:999px; white-space:nowrap; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        Arborist Agent — On the Road Daily
+      </div>
+    </div>
+  </div>
+  <style>
+    @media (max-width: 768px) {
+      .hero .container { grid-template-columns: 1fr !important; }
+      .hero-truck { display: none; }
+    }
+  </style>
+</section>
+
+<!-- ── Three Services ── -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 48px;">
+      <p class="eyebrow">What We Do</p>
+      <h2>Two Ways to Serve You</h2>
+      <p class="lead" style="margin: 0 auto;">One trusted contact for your property and your land — across Central Florida.</p>
+    </div>
+
+    <div class="grid-2" style="max-width:800px; margin:0 auto;">
+
+      <!-- Tree Service -->
+      <a href="arborist-agent.html" style="text-decoration:none;" data-entity="arborist-agent">
+        <div class="card" style="cursor:pointer; padding-top:0;">
+          <div class="preview-frame">
+            <div class="preview-bar">
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-url">arborist-agent.html</span>
+            </div>
+            <img src="preview-arborist.png" alt="Arborist Agent page preview" />
+          </div>
+          <h3>Arborist Agent</h3>
+          <p>Professional tree care for residential properties, commercial lots, HOAs, and municipalities. Storm cleanup, trimming, removal, and privacy tree planting.</p>
+          <ul class="service-list" style="margin-top:16px;">
+            <li>Tree trimming &amp; removal</li>
+            <li>Storm damage cleanup</li>
+            <li>Stump grinding</li>
+            <li>Privacy tree planting</li>
+            <li>Emergency services</li>
+          </ul>
+          <p style="margin-top:20px; color:var(--scarlet); font-weight:600; font-size:0.9rem;">Learn More →</p>
+        </div>
+      </a>
+
+      <!-- Real Estate -->
+      <a href="real-estate.html" style="text-decoration:none;" data-entity="real-estate">
+        <div class="card" style="cursor:pointer; padding-top:0;">
+          <div class="preview-frame">
+            <div class="preview-bar">
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-url">real-estate.html</span>
+            </div>
+            <img src="preview-re.png" alt="Commercial Real Estate page preview" />
+          </div>
+          <h3>Commercial Real Estate</h3>
+          <p>Buyer and tenant representation for commercial properties across Volusia, Lake, and Seminole counties. Office, retail, land, and industrial.</p>
+          <ul class="service-list" style="margin-top:16px;">
+            <li>Buyer representation</li>
+            <li>Tenant representation</li>
+            <li>Commercial land</li>
+            <li>Office &amp; retail leasing</li>
+            <li>Investment properties</li>
+          </ul>
+          <p style="margin-top:20px; color:var(--scarlet); font-weight:600; font-size:0.9rem;">Learn More →</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Heroes Section ── -->
+<section class="heroes-strip" data-entity="group">
+  <div class="container">
+    <div class="grid-2" style="align-items:center; gap:48px;">
+      <div>
+        <p class="eyebrow" style="color:rgba(255,255,255,0.6);">Community First</p>
+        <h2>Proud to Serve Florida's Heroes</h2>
+        <p>Special pricing and priority service for the men and women who serve our communities every day. Ask about our Heroes Program when you call.</p>
+        <a href="contact.html" class="btn btn-outline" style="margin-top:8px;">Ask About Heroes Pricing</a>
+      </div>
+      <div>
+        <div class="heroes-grid">
+          <span class="hero-tag">👮 Law Enforcement</span>
+          <span class="hero-tag">🎓 Teachers &amp; Educators</span>
+          <span class="hero-tag">🎖️ Military &amp; Veterans</span>
+          <span class="hero-tag">🚑 EMS &amp; First Responders</span>
+          <span class="hero-tag">🏥 Healthcare Workers</span>
+          <span class="hero-tag">✈️ Airline Professionals</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Service Areas ── -->
+<section class="section bg-lite">
+  <div class="container text-center">
+    <p class="eyebrow">Where We Work</p>
+    <h2>Serving Central Florida</h2>
+    <p class="lead" style="margin: 0 auto 24px;">Locally rooted in the communities we serve across three counties.</p>
+    <div class="areas-list" style="justify-content:center;">
+      <span class="area-tag">DeBary</span>
+      <span class="area-tag">Sanford</span>
+      <span class="area-tag">Mt Dora</span>
+      <span class="area-tag">Eustis</span>
+      <span class="area-tag">Leesburg</span>
+      <span class="area-tag">Volusia County</span>
+      <span class="area-tag">Seminole County</span>
+      <span class="area-tag">Lake County</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact CTA ── -->
+<section class="section bg-scarlet">
+  <div class="container text-center">
+    <h2 style="color:var(--white);">Ready to Work Together?</h2>
+    <p style="color:rgba(255,255,255,0.8); max-width:480px; margin:0 auto 28px;">One call, one agent. Reach out today and let's talk about what you need.</p>
+    <a href="contact.html" class="btn" style="background:var(--white); color:var(--scarlet);">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span>Scarlet</span> Joe Hanson Group</h3>
+        <p style="font-size:0.875rem; margin-bottom:16px;">Real Estate · Arborist Services<br>Serving Central Florida</p>
+        <p style="font-size:0.8rem;">DeBary · Sanford · Mt Dora · Eustis · Leesburg</p>
+      </div>
+      <div>
+        <h4>Arborist Agent</h4>
+        <ul>
+          <li><a href="arborist-agent.html#services">Services</a></li>
+          <li><a href="arborist-agent.html#heroes">Heroes Pricing</a></li>
+          <li><a href="arborist-agent.html#privacy-trees">Privacy Trees</a></li>
+          <li><a href="contact.html">Request a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Real Estate</h4>
+        <ul>
+          <li><a href="real-estate.html#buyers">Buyer Services</a></li>
+          <li><a href="real-estate.html#tenants">Tenant Rep</a></li>
+          <li><a href="real-estate.html#properties">Property Types</a></li>
+          <li><a href="contact.html">Start a Search</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Real Estate Disclosure:</strong> Scarlet Joe Hanson is a Licensed Real Estate Sales Associate with
+      <strong>Star Studded Realty Group</strong>, operated by Broker Star Williams. All real estate services are
+      conducted under the license and supervision of Star Studded Realty Group. Florida Real Estate Commission (FREC) licensed.
+      Tree care services provided by Arborist Agent.
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Scarlet Joe Hanson Group. All rights reserved.</span>
+      <span>DeBary, FL | Serving Volusia, Lake &amp; Seminole Counties</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
